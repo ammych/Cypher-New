@@ -1,0 +1,237 @@
+
+    <div class="profile-header">
+        <ul>
+			<li><a routerLink="/account/profile" class="active">Buyer Info</a></li>
+			<li class="profilesecondli"><a routerLink="/account/seller">Seller Info</a></li>
+		</ul>
+    </div>
+    <div class="profile-body">
+		<div class="row">
+			<div class="col-12 col-lg-5 col-xl-5">
+				<div class="alert alert-success">
+					Notice Box
+				</div>
+			</div>
+		</div>
+        <div class="row no-gutters">
+			
+            <div class="col-12 col-lg-5 col-xl-5" [formGroup]="form">
+                <div class="form-group">
+                    <label for="profile-first-name">{{ 'INPUT_FIRST_NAME_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-first-name"
+                        formControlName="firstName"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.firstName|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.firstName|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="profile-last-name">{{ 'INPUT_LAST_NAME_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-last-name"
+                        formControlName="lastName"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.lastName|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.lastName|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label for="profile-address">{{ 'INPUT_ADDRESS_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-address"
+                        formControlName="address"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.address|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.address|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label for="profile-state">{{ 'INPUT_STATE_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-state"
+                        formControlName="state"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.state|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.state|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label for="profile-zipcode">{{ 'INPUT_ZIPCODE_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-zipcode"
+                        formControlName="zipcode"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.zipcode|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.zipcode|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label for="profile-country">{{ 'INPUT_COUNTRY_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-country"
+                        formControlName="country"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.country|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.country|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="profile-email">{{ 'INPUT_EMAIL_ADDRESS_LABEL'|translate }}</label>
+                    <input
+                        type="email"
+                        id="profile-email"
+                        formControlName="email"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.email|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.email|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                        <div *ngIf="form.controls.email|hasError:'email'">
+                            {{ 'ERROR_FORM_INCORRECT_EMAIL'|translate }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="profile-phone">{{ 'INPUT_PHONE_NUMBER_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-phone"
+                        formControlName="phone"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.phone|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.phone|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+
+				<input
+                    type="hidden"
+                    id="profile-selleraddress"
+                    formControlName="selleraddress"
+                    class="form-control"
+					[class.is-invalid]="form.controls.selleraddress|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-sellerstate"
+                    formControlName="sellerstate"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.sellerstate|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-sellerzipcode"
+                    formControlName="sellerzipcode"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.sellerzipcode|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-sellercountry"
+                    formControlName="sellercountry"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.sellercountry|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-selleremail"
+                    formControlName="selleremail"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.selleremail|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-sellerphone"
+                    formControlName="sellerphone"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.sellerphone|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-bankaccountholdername"
+                    formControlName="bankaccountholdername"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.bankaccountholdername|isInvalid"
+				>
+				<input
+                    type="hidden"
+                    id="profile-bankaccountnumber"
+                    formControlName="bankaccountnumber"
+                    class="form-control"
+					[class.is-invalid]="form.controls.bankaccountnumber|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-ifsccode"
+                    formControlName="ifsccode"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.ifsccode|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-aadharnumber"
+                    formControlName="aadharnumber"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.aadharnumber|isInvalid"
+                >
+
+
+                <div class="form-group mb-0">
+                    <button
+                        class="btn btn-primary mt-3"
+                        [class.btn-loading]="saveInProgress"
+                        (click)="save()"
+                    >
+                        {{ 'BUTTON_EDIT'|translate }}
+                    </button>
+                </div>
+				
+				<div class="form-group mb-0">
+                    <button
+                        class="btn btn-primary mt-3"
+                        (click)="logout()"
+                    >
+                        {{ 'LINK_ACCOUNT_LOGOUT'|translate }}
+                    </button>
+                </div>
+				
+				
+            </div>
+        </div>
+    </div>

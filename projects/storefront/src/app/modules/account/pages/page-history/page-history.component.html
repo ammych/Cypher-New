@@ -1,0 +1,181 @@
+<div class="dashboard" *ngIf="account.user">
+
+	<div class="dashboardheader">
+		<div class="dashboard-heading">Dashboard</div>
+		<div class="profile-card__name">{{ account.user.firstName }} {{ account.user.lastName }}</div>
+	</div>
+	<ul class="dashboardlinks">
+		<li><a routerLink="/account/dashboard"><i class="fa fa-plus"></i>{{ 'TEXT_ADD_NEW'|translate }}</a></li>
+		<li><a routerLink="/account/active">{{ 'TEXT_ACTIVE'|translate }}</a></li>
+		<li><a routerLink="/account/history"  class="active">{{ 'TEXT_HISTORY'|translate }}</a></li>
+		<li><a routerLink="/account/mostwanted">{{ 'TEXT_MOSTWANTED'|translate }}</a></li>
+		<li><a routerLink="/account/settings">{{ 'TEXT_SETTINGS'|translate }}</a></li>
+	</ul>
+	
+	
+	<div class="dashboardcontent">
+	
+		<div class="profitmadeheading">
+			total profit made form cypher:
+		</div>
+		<div class="profitmadeprice">
+			Rs 29,873.00
+		</div>
+	
+	<div class="block-products-columns__list">
+		<div class="block-products-columns__list-item ng-star-inserted">
+			<div class="product-card">
+				<div class="product-card__image">
+					<div class="image image--type--product">
+						<a class="image__body" href=""><img alt="" class="image__tag" src="assets/images/products/product-6-1.png"></a>
+					</div>
+				</div>
+				<div class="product-card__info">
+					<div class="orderdetails">
+						<p>Order Date: 16 Sep 2020</p>
+						<p>Order Id: CY01567</p>
+						<p>Total: Rs 35,689.00</p>
+					</div>
+					<div class="orderdetailsbtn">
+						<a href="">Details</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="block-products-columns__list-item ng-star-inserted">
+			<div class="product-card">
+				<div class="product-card__image">
+					<div class="image image--type--product">
+						<a class="image__body" href="">
+							<img alt="" class="image__tag" src="assets/images/products/product-2-1.png">
+						</a>
+					</div>
+				</div>
+				<div class="product-card__info">
+					<div class="orderdetails">
+						<p>Order Date: 16 Sep 2020</p>
+						<p>Order Id: CY01567</p>
+						<p>Total: Rs 35,689.00</p>
+					</div>
+					<div class="orderdetailsbtn">
+						<a href="">Details</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="block-products-columns__list-item ng-star-inserted">
+			<div class="product-card">
+				<div class="product-card__image">
+					<div class="image image--type--product">
+						<a class="image__body" href=""><img alt="" class="image__tag" src="assets/images/products/product-5-1.png"></a>
+					</div>
+				</div>
+				<div class="product-card__info">
+					<div class="orderdetails">
+						<p>Order Date: 16 Sep 2020</p>
+						<p>Order Id: CY01567</p>
+						<p>Total: Rs 35,689.00</p>
+					</div>
+					<div class="orderdetailsbtn">
+						<a href="">Details</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="block-products-columns__list-item ng-star-inserted">
+			<div class="product-card">
+				<div class="product-card__image">
+					<div class="image image--type--product">
+						<a class="image__body" href=""><img alt="" class="image__tag" src="assets/images/products/product-4-1.png"></a>
+					</div>
+				</div>
+				<div class="product-card__info">
+					<div class="orderdetails">
+						<p>Order Date: 16 Sep 2020</p>
+						<p>Order Id: CY01567</p>
+						<p>Total: Rs 35,689.00</p>
+					</div>
+					<div class="orderdetailsbtn">
+						<a href="">Details</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div class="block-products-columns__list-item ng-star-inserted">
+			<div class="product-card">
+				<div class="product-card__image">
+					<div class="image image--type--product">
+						<a class="image__body" href=""><img alt="" class="image__tag" src="assets/images/products/product-6-1.png"></a>
+					</div>
+				</div>
+				<div class="product-card__info">
+					<div class="orderdetails">
+						<p>Order Date: 16 Sep 2020</p>
+						<p>Order Id: CY01567</p>
+						<p>Total: Rs 35,689.00</p>
+					</div>
+					<div class="orderdetailsbtn">
+						<a href="">Details</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="block-products-columns__list-item ng-star-inserted">
+			<div class="product-card">
+				<div class="product-card__image">
+					<div class="image image--type--product">
+						<a class="image__body" href="">
+							<img alt="" class="image__tag" src="assets/images/products/product-2-1.png">
+						</a>
+					</div>
+				</div>
+				<div class="product-card__info">
+					<div class="orderdetails">
+						<p>Order Date: 16 Sep 2020</p>
+						<p>Order Id: CY01567</p>
+						<p>Total: Rs 35,689.00</p>
+					</div>
+					<div class="orderdetailsbtn">
+						<a href="">Details</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="block-products-columns__list-item ng-star-inserted">
+			<div class="product-card">
+				<div class="product-card__image">
+					<div class="image image--type--product">
+						<a class="image__body" href=""><img alt="" class="image__tag" src="assets/images/products/product-5-1.png"></a>
+					</div>
+				</div>
+				<div class="product-card__info">
+					<div class="orderdetails">
+						<p>Order Date: 16 Sep 2020</p>
+						<p>Order Id: CY01567</p>
+						<p>Total: Rs 35,689.00</p>
+					</div>
+					<div class="orderdetailsbtn">
+						<a href="">Details</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="block-products-columns__list-item ng-star-inserted">
+	
+	
+	
+	</div>
+	
+	
+		
+	</div>
+	
+	
+	
+	
+	
+
+
+    
+</div>

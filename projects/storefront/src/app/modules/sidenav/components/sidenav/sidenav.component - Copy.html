@@ -1,0 +1,47 @@
+<ul class="main-menu__list">
+    <ng-container *ngFor="let item of items">
+        <li
+            *ngIf="!item.customFields?.ignoreIn?.includes(header.desktopLayout)"
+            class="main-menu__item"
+            [class.main-menu__item--has-submenu]="item.submenu"
+        >
+            <ng-template #linkContent>
+                {{ item.title }}
+				<i *ngIf="item.submenu" class="fa fa-chevron-down" ></i>
+            </ng-template>
+
+            <a *ngIf="!item.external" [routerLink]="item.url" class="main-menu__link">
+                <ng-container *ngTemplateOutlet="linkContent"></ng-container>
+            </a>
+            <a *ngIf="item.external" [href]="item.url" class="main-menu__link" target="_blank">
+                <ng-container *ngTemplateOutlet="linkContent"></ng-container>
+            </a>
+
+            <div *ngIf="item.submenu" class="main-menu__submenu">
+			
+				<ul class="menu__list">
+					<li
+						*ngFor="let subitem of item.submenu.links"
+						class="menu__item"
+						[class.menu__item--has-submenu]="subitem.links"
+					>
+						<ng-template #linkContent>
+							{{ subitem.title }}
+						</ng-template>
+						
+						
+
+						<a *ngIf="!subitem.external" [routerLink]="subitem.url" class="menu__link">
+							<ng-container *ngTemplateOutlet="linkContent"></ng-container>
+						</a>
+						<a *ngIf="subitem.external" [href]="subitem.url" class="menu__link" target="_blank">
+							<ng-container *ngTemplateOutlet="linkContent"></ng-container>
+						</a>
+					</li>
+				</ul>
+
+                
+            </div>
+        </li>
+    </ng-container>
+</ul>

@@ -1,0 +1,77 @@
+
+
+<div class="block">
+    <div class="">
+        <div class="row">
+            <div class="col-md-12 d-flex">
+                <div class="flex-grow-1 mb-md-0 mr-0 mr-lg-3 ml-0 ml-lg-4">
+                    <div class="loginformdiv">
+                        <h3 class="card-title">{{ 'HEADER_LOGIN'|translate }}</h3>
+                        <form [formGroup]="loginForm">
+                            <div *ngIf="loginForm.errors?.server" class="alert alert-sm alert-danger">
+                                {{ loginForm.errors.server|translate }}
+                            </div>
+                            <div class="form-group">
+                                <label for="signin-email">{{ 'INPUT_EMAIL_ADDRESS_LABEL'|translate }}</label>
+                                <input
+                                    id="signin-email"
+                                    type="email"
+                                    class="form-control"
+                                    [class.is-invalid]="loginForm.controls.email|isInvalid"
+                                    formControlName="email"
+                                >
+                                <div class="invalid-feedback">
+                                    <div *ngIf="loginForm.controls.email|hasError:'required'">
+                                        {{ 'ERROR_FORM_REQUIRED'|translate }}
+                                    </div>
+                                    <div *ngIf="loginForm.controls.email|hasError:'email'">
+                                        {{ 'ERROR_FORM_INCORRECT_EMAIL'|translate }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="signin-password">{{ 'INPUT_PASSWORD_LABEL'|translate }}</label>
+                                <input
+                                    id="signin-password"
+                                    type="password"
+                                    class="form-control"
+                                    [class.is-invalid]="loginForm.controls.password|isInvalid"
+                                    formControlName="password"
+                                >
+                                <div class="invalid-feedback">
+                                    <div *ngIf="loginForm.controls.password|hasError:'required'">
+                                        {{ 'ERROR_FORM_REQUIRED'|translate }}
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="form-group mb-0">
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary mt-3"
+                                    [class.btn-loading]="loginInProgress"
+                                    (click)="login()"
+                                >
+                                    {{ 'BUTTON_LOGIN'|translate }}
+                                </button>
+                            </div>
+							<div class="form-group loginlinks">
+								<a routerLink="/account/forgot-password">{{ 'LINK_FORGOT_PASSWORD'|translate }}</a>
+                                <a routerLink="/account/register">{{ 'LINK_CREATE_ACCOUNT'|translate }}</a>
+							</div>
+                        </form>
+                    </div>
+                
+					<div class="signupsectiondiv">
+						<a routerLink="/">{{ 'LINK_CREATE_GMAIL'|translate }}</a>
+					</div>
+				
+				</div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<app-block-space layout="before-footer"></app-block-space>

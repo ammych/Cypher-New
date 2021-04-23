@@ -1,0 +1,374 @@
+<div class="dashboard" *ngIf="account.user">
+
+	<div class="dashboardheader">
+		<div class="dashboard-heading">Dashboard</div>
+		<div class="profile-card__name">{{ account.user.firstName }} {{ account.user.lastName }}</div>
+	</div>
+	<ul class="dashboardlinks">
+		<li><a routerLink="/account/dashboard" class="active"><i class="fa fa-plus"></i>{{ 'TEXT_ADD_NEW'|translate }}</a></li>
+		<li><a routerLink="/account/active">{{ 'TEXT_ACTIVE'|translate }}</a></li>
+		<li><a routerLink="/account/pending">{{ 'TEXT_PENDING'|translate }}</a></li>
+		
+	</ul>
+	
+	
+	<div class="addproductsection">
+	<div class="row">
+		<div class="col-md-6">
+			<ng-container [formGroup]="form">
+				<div class="form-row">
+					<div class="form-group col-md-12">
+						<label for="{{ formId }}-sneaker-name">{{ 'INPUT_SNEAKER_NAME_LABEL'|translate }}</label>
+						<input
+							type="text"
+							class="form-control"
+							id="{{ formId }}-sneaker-name"
+							formControlName="sneakerName"
+							[class.is-invalid]="form.controls.sneakerName|isInvalid"
+							[placeholder]="'INPUT_SKU_PLACEHOLDER'|translate"
+						>
+						<div class="invalid-feedback">
+							<div *ngIf="form.controls.sneakerName|hasError:'required'">
+								{{ 'ERROR_FORM_REQUIRED'|translate }}
+							</div>
+						</div>
+					</div>
+					<div class="form-group col-md-12">
+						<label for="{{ formId }}-sku">{{ 'INPUT_SKU_LABEL'|translate }}</label>
+						<input
+							type="text"
+							class="form-control"
+							id="{{ formId }}-sku"
+							formControlName="sku"
+							[class.is-invalid]="form.controls.sku|isInvalid"
+							[placeholder]="'INPUT_SKU_PLACEHOLDER'|translate"
+						>
+						<div class="invalid-feedback">
+							<div *ngIf="form.controls.sku|hasError:'required'">
+								{{ 'ERROR_FORM_REQUIRED'|translate }}
+							</div>
+						</div>
+					</div>
+					<div class="form-group col-md-12">
+						<label for="{{ formId }}-size">{{ 'INPUT_SIZE_LABEL'|translate }}</label>
+						<select
+							id="{{ formId }}-size"
+							class="form-control"
+							formControlName="size"
+							[class.is-invalid]="form.controls.size|isInvalid"
+						>
+							<option value="">{{ 'INPUT_BOX_CONDITION_PLACEHOLDER'|translate }}</option>
+							<option value="11">11</option>
+							<option value="11.5">11.5</option>
+							<option value="12">12</option>
+							<option value="12.5">12.5</option>
+						</select>
+						<div class="invalid-feedback">
+							<div *ngIf="form.controls.size|hasError:'required'">
+								{{ 'ERROR_FORM_REQUIRED'|translate }}
+							</div>
+						</div>
+					</div>
+					<div class="form-group col-md-12">
+						<label for="{{ formId }}-brand">{{ 'INPUT_BRAND_LABEL'|translate }}</label>
+						<input
+							type="text"
+							class="form-control"
+							id="{{ formId }}-brand"
+							formControlName="brand"
+							[class.is-invalid]="form.controls.brand|isInvalid"
+						>
+						<div class="invalid-feedback">
+							<div *ngIf="form.controls.brand|hasError:'required'">
+								{{ 'ERROR_FORM_REQUIRED'|translate }}
+							</div>
+						</div>
+					</div>
+					<div class="form-group col-md-12">
+						<label for="{{ formId }}-colorway">{{ 'INPUT_COLORWAY_LABEL'|translate }}</label>
+						<input
+							type="text"
+							class="form-control"
+							id="{{ formId }}-colorway"
+							formControlName="colorway"
+							[class.is-invalid]="form.controls.colorway|isInvalid"
+						>
+						<div class="invalid-feedback">
+							<div *ngIf="form.controls.colorway|hasError:'required'">
+								{{ 'ERROR_FORM_REQUIRED'|translate }}
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group col-md-12">
+						<label for="{{ formId }}-boxcondition">{{ 'INPUT_BOX_CONDITION_LABEL'|translate }}</label>
+						<select
+							id="{{ formId }}-boxcondition"
+							class="form-control"
+							formControlName="boxcondition"
+							[class.is-invalid]="form.controls.boxcondition|isInvalid"
+						>
+							<option value="">{{ 'INPUT_BOX_CONDITION_PLACEHOLDER'|translate }}</option>
+							<option value="New">New</option>
+							<option value="Slightly Damaged">Slightly Damaged</option>
+							<option value="No Box">No Box</option>
+						</select>
+						<div class="invalid-feedback">
+							<div *ngIf="form.controls.boxcondition|hasError:'required'">
+								{{ 'ERROR_FORM_REQUIRED'|translate }}
+							</div>
+						</div>
+					</div>
+					<div class="form-group col-md-12">
+						<label for="{{ formId }}-images">{{ 'INPUT_IMAGE_LABEL'|translate }}</label>
+						<span class="text-small">{{ 'TEXT_IMAGE_OPTIONAL'|translate }}</span>
+						
+						<div *ngIf="showCarousel" class="block-slideshow__carousel uploadanglessection">
+							<owl-carousel-o  [options]="carouselOptions" appOwlPreventClick>
+								<ng-template carouselSlide>
+									<div class="anglesection">
+										<div class="anglesectionleft">
+											<div class="angleshoeimage">
+												<img src="assets/images/angles/angle1.jpg" class="reflect-rtl" alt="Appearance of the sole of both the shoes">
+											</div>
+										</div>
+										<div class="anglesectionright">
+											<div class="angleuploadsection">
+												<div class="file-upload">
+													<input type="file" />
+													<img src="assets/images/angleplus.png">
+												</div>
+												<div class="deleteangle">
+													<img src="assets/images/trash.png">
+												</div>
+											</div>
+										</div>
+									</div>
+								</ng-template>
+								<ng-template carouselSlide>
+									<div class="anglesection">
+										<div class="anglesectionleft">
+											<div class="angleshoeimage">
+												<img src="assets/images/angles/angle2.jpg" class="reflect-rtl" alt="Appearance of both the shoes from the top with insole visibility">
+											</div>
+										</div>
+										<div class="anglesectionright">
+											<div class="angleuploadsection">
+												<div class="file-upload">
+													<input type="file" />
+													<img src="assets/images/angleplus.png">
+												</div>
+												<div class="deleteangle">
+													<img src="assets/images/trash.png">
+												</div>
+											</div>
+										</div>
+									</div>
+								</ng-template>
+								<ng-template carouselSlide>
+									<div class="anglesection">
+										<div class="anglesectionleft">
+											<div class="angleshoeimage">
+												<img src="assets/images/angles/angle3.jpg"  class="reflect-rtl" alt="Appearance of both the shoes from behind">
+											</div>
+										</div>
+										<div class="anglesectionright">
+											<div class="angleuploadsection">
+												<div class="file-upload">
+													<input type="file" />
+													<img src="assets/images/angleplus.png">
+												</div>
+												<div class="deleteangle">
+													<img src="assets/images/trash.png">
+												</div>
+											</div>
+										</div>
+									</div>
+								</ng-template>
+								<ng-template carouselSlide>
+									<div class="anglesection">
+										<div class="anglesectionleft">
+											<div class="angleshoeimage">
+												<img src="assets/images/angles/angle4.jpg" class="reflect-rtl" alt="Shoe Box">
+											</div>
+										</div>
+										<div class="anglesectionright">
+											<div class="angleuploadsection">
+												<div class="file-upload">
+													<input type="file" />
+													<img src="assets/images/angleplus.png">
+												</div>
+												<div class="deleteangle">
+													<img src="assets/images/trash.png">
+												</div>
+											</div>
+										</div>
+									</div>
+								</ng-template>
+								<ng-template carouselSlide>
+									<div class="anglesection">
+										<div class="anglesectionleft">
+											<div class="angleshoeimage">
+												<img src="assets/images/angles/angle5.jpg"  class="reflect-rtl" alt="Appearance of both the shoes (full Image)">
+											</div>
+										</div>
+										<div class="anglesectionright">
+											<div class="angleuploadsection">
+												<div class="file-upload">
+													<input type="file" />
+													<img src="assets/images/angleplus.png">
+												</div>
+												<div class="deleteangle">
+													<img src="assets/images/trash.png">
+												</div>
+											</div>
+										</div>
+									</div>
+								</ng-template>
+								<ng-template carouselSlide>
+									<div class="anglesection">
+										<div class="anglesectionleft">
+											<div class="angleshoeimage">
+												<img src="assets/images/angles/angle6.jpg" class="reflect-rtl" alt="Zoomed in picture of the Air Jordan tag and Nike Swoosh">
+											</div>
+										</div>
+										<div class="anglesectionright">
+											<div class="angleuploadsection">
+												<div class="file-upload">
+													<input type="file" />
+													<img src="assets/images/angleplus.png">
+												</div>
+												<div class="deleteangle">
+													<img src="assets/images/trash.png">
+												</div>
+											</div>
+										</div>
+									</div>
+								</ng-template>
+								<ng-template carouselSlide>
+									<div class="anglesection">
+										<div class="anglesectionleft">
+											<div class="angleshoeimage">
+												<img src="assets/images/angles/angle7.jpg" class="reflect-rtl" alt="Appearance of the toe box for both the shoes (Zoomed in)">
+											</div>
+										</div>
+										<div class="anglesectionright">
+											<div class="angleuploadsection">
+												<div class="file-upload">
+													<input type="file" />
+													<img src="assets/images/angleplus.png">
+												</div>
+												<div class="deleteangle">
+													<img src="assets/images/trash.png">
+												</div>
+											</div>
+										</div>
+									</div>
+								</ng-template>
+								
+							</owl-carousel-o>
+							
+						</div>
+						
+						
+						
+						
+						<div class="invalid-feedback">
+							<div *ngIf="form.controls.images|hasError:'required'">
+								{{ 'ERROR_FORM_REQUIRED'|translate }}
+							</div>
+						</div>
+					</div>
+					<div class="form-group col-md-12">
+						<label for="{{ formId }}-price">{{ 'INPUT_ASK_PRICE_LABEL'|translate }}</label>
+						<span class="text-small">{{ 'TEXT_PRICE_OPTIONAL'|translate }}</span>
+						
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text">INR</span>
+							</div>
+							<input
+								type="text"
+								class="form-control"
+								id="{{ formId }}-price"
+								formControlName="price"
+								[class.is-invalid]="form.controls.price|isInvalid"
+							>
+						</div>
+						<div class="invalid-feedback">
+							<div *ngIf="form.controls.price|hasError:'required'">
+								{{ 'ERROR_FORM_REQUIRED'|translate }}
+							</div>
+						</div>
+						<div class="pricesbox">
+							<table>
+								<tr>
+									<td>List Price</td>
+									<td>₹-26</td>
+								</tr>
+								<tr>
+									<td>Transaction Fee (10%)</td>
+									<td>₹-2.6</td>
+								</tr>
+								<tr>
+									<td>Service Tax (1.8%)</td>
+									<td>₹-0.47</td>
+								</tr>
+								<tr>
+									<td>Shipping</td>
+									<td>₹120</td>
+								</tr>
+								<tr>
+									<td>Authentication Fee</td>
+									<td>waived</td>
+								</tr>
+								<tr>
+									<td>You will recieve</td>
+									<td>₹0</td>
+								</tr>
+							</table>
+						</div>
+						
+					</div>
+					<div class="form-group mb-0 pt-3">
+						<button
+							class="btn btn-primary"
+							[class.btn-loading]="saveInProgress"
+							(click)="save()"
+						>{{ 'BUTTON_CONFIRM'|translate }}</button>
+					</div>
+					
+				</div>
+			</ng-container>
+		</div>
+		<div class="col-md-6">
+		
+			<div class="row">
+				<div class="col-md-6">
+					<div class="addproductimage"><img src="assets/images/products/product-1-1.png"></div>
+				</div>
+				<div class="col-md-6">
+					<div class="addproductdetailbox">
+						<div class="productname">Adidas Yeezy Boost 350 V2 Desert Sage</div>
+						<ul class="productmeta">
+							<li>Brand: adidas</li>
+							<li>Colorway: Desert Sage</li>
+							<li>Year: 2020</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		
+		
+		</div>
+	</div>
+	</div>
+	
+	
+	
+	
+	
+
+
+    
+</div>

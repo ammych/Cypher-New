@@ -1,0 +1,225 @@
+<div class="dashboard" *ngIf="account.user">
+
+	<div class="dashboardheader">
+		<div class="dashboard-heading">Dashboard</div>
+		<div class="profile-card__name">{{ account.user.firstName }} {{ account.user.lastName }}</div>
+	</div>
+	<ul class="dashboardlinks">
+		<li><a routerLink="/account/dashboard"><i class="fa fa-plus"></i>{{ 'TEXT_ADD_NEW'|translate }}</a></li>
+		<li><a routerLink="/account/active"  class="active">{{ 'TEXT_ACTIVE'|translate }}</a></li>
+		<li><a routerLink="/account/history">{{ 'TEXT_HISTORY'|translate }}</a></li>
+		<li><a routerLink="/account/mostwanted">{{ 'TEXT_MOSTWANTED'|translate }}</a></li>
+		<li><a routerLink="/account/settings">{{ 'TEXT_SETTINGS'|translate }}</a></li>
+	</ul>
+	
+	
+	<div class="settingscontent">
+		<div class="settingsheading">Buying Notifications</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Bidding, New Lowest Ask</div>
+				<div class="settingstext">Sent when a new Lowest Ask is placed on an item you’re bidding on</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="bidding_new_lowest_ask">
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Bidding, New Highest Bid</div>
+				<div class="settingstext">Sent when a new highest Bid is placed on an item you have an active Bid on</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="bidding_new_highest_bid" checked>
+					<span class="slider"></span>
+				</label>
+
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Bid Expiring</div>
+				<div class="settingstext">Sent 24 hours before your active Bid expires</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="bid_expiring" checked>
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Bid Expired</div>
+				<div class="settingstext">Sent when your Bid has expired</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="bid_expired">
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Ask Matches Expired Bid</div>
+				<div class="settingstext">Sent if a seller lists a new Ask that matches one of your expired Bids</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="ask_matches_expired_bid" checked>
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Buyer Nearby Match</div>
+				<div class="settingstext">Sent if a seller lists an Ask at the same price, or lower, within 1/2 size of your existing Bid</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="buyer_nearby_match" checked>
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Bid Accepted</div>
+				<div class="settingstext">Your bid has been accepted</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="bid_accepted" checked>
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+		
+		<div class="settingsheading">Seller Notifications</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Asking, New Highest Bid</div>
+				<div class="settingstext">Sent when a new Highest Bid is placed on an item that is at least X percent of your Ask</div>
+			</div>
+			<div class="settingswitchbox">
+				<select name="asking_new_highest_bid">
+					<option value="60%">60%</option>
+					<option value="80%">80%</option>
+					<option value="100%">100%</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Asking, New Lowest Ask</div>
+				<div class="settingstext">Sent when a new Lowest Ask is placed for an item you have an active Ask for</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="asking_new_lowest_ask" checked>
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Ask Expiring</div>
+				<div class="settingstext">Sent 24 hours before your active Ask expires</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="ask_expiring" checked>
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Ask Expired</div>
+				<div class="settingstext">Sent when your Ask has expired</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="ask_expired">
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Item Sold</div>
+				<div class="settingstext">Your item has sold</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="item_sold" checked>
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">First Seller Has Not Shipped</div>
+				<div class="settingstext">Sent when a seller hasn't shipped by the deadline.</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="first_seller_has_not_shipped" checked>
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Second Seller Has Not Shipped</div>
+				<div class="settingstext">Sent when a seller still hasn't shipped after first notification</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="second_seller_has_not_shipped" checked>
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Third Seller Has Not Shipped</div>
+				<div class="settingstext">Sent as a final warning when a seller hasn't shipped</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="third_seller_has_not_shipped" checked>
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+		
+		<div class="settingsheading">Subscription Notifications</div>
+		<div class="form-group">
+			<div class="settingscontentbox">
+				<div class="settingshead">Newsletter</div>
+			</div>
+			<div class="settingswitchbox">
+				<label class="switch">
+					<input type="checkbox" name="newsletter">
+					<span class="slider"></span>
+				</label>
+			</div>
+		</div>
+	
+	</div>
+	
+	
+	
+	
+	
+
+
+    
+</div>
