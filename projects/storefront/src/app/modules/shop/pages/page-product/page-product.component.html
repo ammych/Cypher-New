@@ -1,0 +1,171 @@
+<app-block-header [breadcrumb]="breadcrumb$|async"></app-block-header>
+
+<ng-template #sidebar>
+    <app-product-sidebar class="block-split__item block-split__item-sidebar col-auto"></app-product-sidebar>
+</ng-template>
+
+<div class="block-split" [class.block-split--has-sidebar]="layout === 'sidebar'">
+    <div class="container">
+        <div class="block-split__row row no-gutters">
+            <ng-container *ngIf="layout === 'sidebar' && sidebarPosition === 'start'">
+                <ng-container *ngTemplateOutlet="sidebar"></ng-container>
+            </ng-container>
+            <div class="block-split__item block-split__item-content col-auto">
+                <div
+                    class="product"
+                    [class.product--layout--full]="layout === 'full'"
+                    [class.product--layout--sidebar]="layout === 'sidebar'"
+                >
+                    <div class="product__body">
+                        
+						<div class="row">
+							<div class="col-md-5">
+								<app-product-gallery class="product__gallery" [images]="product.images" [layout]="galleryLayout"></app-product-gallery>
+							</div>
+							<div class="col-md-7">
+								<div class="product__header">
+									<h1 class="product__title">{{ product.name }}</h1>
+								</div>
+								<div class="product__excerpt" *ngIf="product.excerpt">{{ product.excerpt }}</div>
+								
+								<div class="product-sellsection"  [formGroup]="form">
+									<div class="row">
+										<div class="col-md-6">
+											<app-product-form
+												*ngIf="product.options.length > 0"
+												formControlName="options"
+												class="product__form"
+												[options]="product.options"
+											></app-product-form>
+										</div>
+										<div class="col-md-6">
+											<div class="product__prices">
+												<div class="form-group">
+													<label>Price (INR)</label>
+													<div class="product__price product__price--current">{{ product.price }}</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="product__actions">
+									
+										<ng-container *ngIf="product.options.length > 0">
+											<div class="product__actions-item product__actions-item--quantity" style="display:none;">
+												<app-input-number formControlName="quantity" size="lg" min="1"></app-input-number>
+											</div>
+											<div class="product__actions-item product__actions-item--addtocart">
+												<button
+													class="btn btn-primary btn-lg btn-block"
+													[class.btn-loading]="addToCartInProgress"
+													(click)="addToCart()"
+												>
+													{{ 'BUTTON_BUY_NOW'|translate }}
+												</button>
+											</div>
+										</ng-container>
+										<ng-container *ngIf="product.options.length < 0">
+											<div class="product__actions-item">
+												<button
+													class="btn btn-primary btn-lg btn-block"
+												>
+													{{ 'BUTTON_FIND_A_PAIR'|translate }}
+												</button>
+											</div>
+										</ng-container>
+										
+										<div class="lastsalesection">
+											<div class="lastsaletitle">Last Sale</div>
+											<div class="lastsaleprice">$ XX,XXX</div>
+											<div class="salepricedown"><i class="fa fa-chevron-down"></i>-$1(0%)</div>
+										</div>
+										
+										
+										<button
+											appAddToWishlist
+											type="button"
+											class="product__actions-item product__actions-item--wishlist"
+											[class.product__actions-item--loading]="addToWishlist.inProgress"
+											(click)="addToWishlist.add(this.product)"
+											#addToWishlist="addToWishlist"
+										>
+											<span>{{ 'BUTTON_ADD_TO_WISHLIST'|translate }}</span>
+										</button>
+										
+										<button
+											type="button"
+											class="product__actions-item product__actions-item--share"
+										>
+											<span>{{ 'BUTTON_SHARE'|translate }}</span>
+										</button>
+										
+									</div>
+									
+									
+								</div>
+								
+								
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-6">
+								
+                                    <div class="product__meta">
+										<h5>Details</h5>
+                                        <table class="table table-borderless">
+                                            <tbody>
+                                            <tr>
+                                                <th>Style:</th>
+                                                <td>{{ product.sku }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Colorway:</th>
+                                                <td>{{ product.colorway }}</td>
+                                            </tr>
+											<tr>
+                                                <th>Retail Price:</th>
+                                                <td>${{ product.retailprice }}</td>
+                                            </tr>
+											<tr>
+                                                <th>Release date:</th>
+                                                <td>{{ product.releasedate }}</td>
+                                            </tr>
+											<tr>
+                                                <th>India Release:</th>
+                                                <td>{{ product.indiarelease }}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+							</div>
+							<div class="col-md-6">
+							</div>
+						</div>
+						
+
+                        
+
+                        
+                        
+                    </div>
+                </div>
+
+                <ng-container *ngIf="relatedProducts.length > 0">
+                    <app-block-space layout="divider-nl"></app-block-space>
+
+                    <app-block-products-carousel
+                        [blockTitle]="'HEADER_RELATED_PRODUCTS'|translate"
+                        [products]="relatedProducts"
+                        [layout]="layout === 'sidebar' ? 'grid-4-sidebar' : 'grid-4'"
+                    ></app-block-products-carousel>
+                </ng-container>
+            </div>
+            <ng-container *ngIf="layout === 'sidebar' && sidebarPosition === 'end'">
+                <ng-container *ngTemplateOutlet="sidebar"></ng-container>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<app-block-space layout="before-footer"></app-block-space>
