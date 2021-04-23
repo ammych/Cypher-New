@@ -1,0 +1,19 @@
+<div class="mobile-menu__backdrop" (click)="menu.close()"></div>
+<div class="mobile-menu__body" #body>
+    <button class="mobile-menu__close" type="button" (click)="menu.close()">
+        <img src="assets/images/cross.png">
+    </button>
+
+    <div class="mobile-menu__conveyor" [style.transform]="'translateX(-' + currentLevel * 100 + '%)'" #conveyor>
+        <app-mobile-menu-panel label="Menu">
+            
+            <app-mobile-menu-links [items]="links" (itemClick)="onLinkClick($event)"></app-mobile-menu-links>
+
+            <div class="mobile-menu__spring"></div>
+            <div class="mobile-menu__divider"></div>
+            
+        </app-mobile-menu-panel>
+
+        <ng-container #panelsContainer></ng-container>
+    </div>
+</div>

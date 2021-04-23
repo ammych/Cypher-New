@@ -1,0 +1,39 @@
+<app-block-space layout="divider-xs"></app-block-space>
+
+<app-block-products-columns
+    [columns]="[
+        {
+            title: 'HEADER_STEAL_DEALS'|translate,
+            products: columnStealDeals$|async
+        }
+    ]"
+></app-block-products-columns>
+<div class="showmoresection">
+	<a href="#">Show more</a>
+</div>
+<app-block-space layout="divider-xs"></app-block-space>
+<app-block-catproducts-columns
+    [columns]="[
+        {
+            title: 'HEADER_APPAREL_CAT'|translate,
+            products: columnCatProducts$|async,
+			bannerimg: 'assets/images/apparelbanner.jpg',
+			mobilebannerimg: 'assets/images/apparelmobilebanner.jpg'
+        }
+    ]"
+></app-block-catproducts-columns>
+<div class="showmoresection">
+	<a href="#">Show more</a>
+</div>
+<app-block-space layout="divider-xs"></app-block-space>
+<app-block-products-carousel
+    [blockTitle]="'HEADER_RECOMMENDED_PRODUCTS'|translate"
+    layout="grid-4"
+    rows="1"
+    [loading]="this.featuredProducts.loading"
+    [products]="this.featuredProducts.products$|async"
+></app-block-products-carousel>
+
+
+
+<app-block-space layout="before-footer"></app-block-space>

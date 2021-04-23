@@ -1,0 +1,72 @@
+<div class="mobile-menu__panel-header">
+    <button *ngIf="level > 0" class="mobile-menu__panel-back" type="button" (click)="menu.closeCurrentPanel()">
+        <app-icon icon="arrow-rounded-left-7x11"></app-icon>
+    </button>
+    <div class="mobile-menu__panel-title"><img src="assets/images/otherlogo.png"></div>
+</div>
+<div class="mobile-menu__panel-body">
+
+	
+
+    <ul class="main-menu__list sidebar">
+		<li class="main-menu__item">
+			<a routerLink="/account/dashboard" class="main-menu__link">Sell</a>
+		</li>
+		<li class="main-menu__item">
+			<div class="filter" appCollapseItem="filter--opened" #collapseItem="appCollapseItem">
+				<button type="button" class="filter__title" (click)="collapseItem.toggle()">
+					Categories
+				</button>
+				<div class="filter__body" appCollapseContent>
+					<div class="filter__container">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a class="menu__link" routerLink="/shop/category/sneakers/products">Sneakers</a>
+							</li>
+							<li class="menu__item">
+								<a class="menu__link" routerLink="/shop/category/apparel/products">Apparel</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="main-menu__item">
+			<a href="#" class="main-menu__link">Feed</a>
+		</li>
+		<li class="main-menu__item">
+			<div class="filter" appCollapseItem="filter--opened" #collapseItem1="appCollapseItem">
+				<button type="button" class="filter__title" (click)="collapseItem1.toggle()">
+					Account
+				</button>
+				<div class="filter__body" appCollapseContent>
+					<div class="filter__container">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a class="menu__link" routerLink="/account/profile">Profile</a>
+							</li>
+							<li class="menu__item">
+								<a class="menu__link" href="#">Portfolio</a>
+							</li>
+							<li class="menu__item">
+								<a class="menu__link" routerLink="/account/dashboard">Seller Dashboard</a>
+							</li>
+							<li class="menu__item">
+								<a class="menu__link" href="#">Orders</a>
+							</li>
+							<li class="menu__item">
+								<a class="menu__link" routerLink="/account/password">Change Password</a>
+							</li>
+							<li class="menu__item" *ngIf="account.user">
+								<a class="menu__link" (click)="logout()">Logout</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="main-menu__item">
+			<a href="#" class="main-menu__link">Wishlist</a>
+		</li>
+	</ul>
+</div>

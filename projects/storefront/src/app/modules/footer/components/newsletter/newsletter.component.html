@@ -1,0 +1,14 @@
+<h5 class="footer-newsletter__title">{{ 'HEADER_NEWSLETTER'|translate }}</h5>
+
+<form class="footer-newsletter__form" (submit)="$event.preventDefault()">
+    <label class="sr-only" for="footer-newsletter-address">
+        {{ 'INPUT_EMAIL_ADDRESS_LABEL'|translate }}
+    </label>
+    <input
+        type="text"
+        class="footer-newsletter__form-input"
+        id="footer-newsletter-address"
+        [placeholder]="'INPUT_EMAIL_ADDRESS_PLACEHOLDER'|translate"
+    >
+    <button type="submit" class="footer-newsletter__form-button">{{ 'BUTTON_SUBSCRIBE'|translate }}</button>
+</form>
