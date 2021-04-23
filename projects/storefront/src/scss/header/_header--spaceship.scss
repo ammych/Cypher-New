@@ -1,0 +1,183 @@
+@import '../variables';
+@import '../mixins/breakpoints';
+@import '../mixins/direction';
+@import '../mixins/header';
+
+
+@include desktop-header-variant-selector {
+    @if($header-layout == spaceship) {
+        // grid
+        
+        
+
+        // styles
+        .header {
+            display:flex;
+			z-index: 10;
+			margin: 0px 60px;
+			padding: 15px 0px 5px 0px;
+            @include media-breakpoint-down(lg) {
+                display: none;
+            }
+        }
+		#stickyheader
+		{
+			position: fixed;
+			width: 100%;
+			z-index: 9999999;
+			left: 0;
+			right: 0;
+			background:transparent;
+		}
+		#stickyheader.sticky
+		{
+			background: #000;
+			box-shadow: 0 3px 12px 0 rgba(0,0,0,.08);
+			position: fixed;
+			width: 100%;
+			z-index: 9999999;
+			left: 0;
+			right: 0;
+		}
+        .header__navbar {
+            align-self: center;
+            display: flex;
+            align-items: center;
+        }
+        .header__topbar-start-bg,
+        .header__topbar-end-bg {
+            height: 100%;
+            overflow: hidden;
+
+            &:before {
+                display: block;
+                content: '';
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .header__topbar-start,
+        .header__topbar-end {
+            z-index: 1;
+        }
+        .header__topbar-start {
+            @include direction {
+                #{$padding-inline-end}: 20px;
+            }
+        }
+        .header__topbar-end {
+            @include direction {
+                #{$padding-inline-start}: 20px;
+            }
+        }
+        .header__navbar {
+            padding: 10px 0;
+        }
+        .header__navbar-departments {
+            z-index: 2;
+        }
+        .header__navbar-menu {
+            z-index: 2;
+        }
+        .header__indicators {
+            align-self: center;
+            display: flex;
+            justify-content: flex-end;
+            margin-left: auto;
+        }
+        .header__indicators .indicator + .indicator {
+            @include direction {
+                #{$margin-inline-start}: 4px;
+            }
+        }
+        .header__topbar-start-bg:before {
+            @include direction {
+                #{$border-end-end-radius}: 2.5px;
+                transform: skewX(#{-30deg * $transform-direction});
+                transform-origin: top $inline-end;
+            }
+        }
+        .header__topbar-end-bg:before {
+            @include direction {
+                #{$border-end-start-radius}: 2.5px;
+                transform: skewX(#{30deg * $transform-direction});
+                transform-origin: top $inline-start;
+            }
+        }
+        .header__logo {
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+        }
+        .header__navbar {
+            min-height: 80px;
+        }
+        .header__search {
+            position: absolute;
+            align-self: flex-end;
+            justify-self: center;
+            bottom: -24px;
+            width: 480px;
+        }
+
+        @include media-breakpoint-only(xl) {
+            .header__search {
+                width: 440px;
+            }
+        }
+
+
+        // define scheme
+        .header {
+            color: map_get($header-scheme, opposite);
+            background: transparent;
+			border-bottom:3px solid #fff;
+            box-shadow: none;
+        }
+        .header__topbar-start-bg:before {
+            background: map_get($topbar-spaceship-start-scheme, main);
+        }
+        .header__topbar-end-bg:before {
+            background: map_get($topbar-spaceship-end-scheme, main);
+        }
+
+        @if(map_get(map_get($departments-button-scheme, normal), name) != map_get($header-scheme, name)) {
+            .header__navbar-departments {
+                @include direction {
+                    #{$margin-inline-end}: 8px;
+                }
+            }
+        }
+
+        .header__logo {
+            @if ($search-spaceship-top-shadow == none) {
+                padding-bottom: 0;
+            } @else {
+                padding-bottom: 0;
+            }
+        }
+		.app-indicator {
+			position: relative;
+		}
+		.app-indicator__button {
+			padding: 0;
+			display: flex;
+			align-items: center;
+			position: relative;
+			justify-content: center;
+			height: 50px;
+			width: 44px;
+			color: #fff;
+			font-size: 18px;
+			background: transparent;
+			border: none;
+		}
+		.app-indicator__icon {
+			fill: #fff;
+		}
+		.app-indicator__icon {
+			display: block;
+			position: relative;
+		}
+    }
+}
