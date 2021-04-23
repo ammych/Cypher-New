@@ -1,0 +1,50 @@
+<!-- site -->
+<div class="site site--desktop-header--{{ header.desktopVariantClass }} site--mobile-header--mobile-{{ header.mobileVariant }}">
+    <app-loading-bar></app-loading-bar>
+
+    <div class="site__container">
+        <!-- site__mobile-header -->
+        <header class="site__mobile-header">
+            <app-mobile-header></app-mobile-header>
+        </header>
+        <!-- site__mobile-header / end -->
+
+        <!-- site__header -->
+        <header class="site__header homeheader">
+            <app-header></app-header>
+        </header>
+        <!-- site__header / end -->
+		
+		<div id="slideshow">
+			<app-slideshow></app-slideshow>
+		</div>
+		
+        <!-- site__body -->
+        <div class="site__body">
+			<div class="innercontainer">
+			<div class="row">
+				<div class="col-12 col-md-2">
+					<app-sidenav></app-sidenav>
+				</div>
+				<div class="col-12 col-md-10">
+					<router-outlet></router-outlet>
+				</div>
+			</div>
+			</div>
+		</div>
+        <!-- site__body / end -->
+
+        <!-- site__footer -->
+        <footer class="site__footer">
+            <app-footer></app-footer>
+        </footer>
+        <!-- site__footer / end -->
+    </div>
+
+    <!-- mobile-menu -->
+    <app-mobile-menu></app-mobile-menu>
+    <!-- mobile-menu / end -->
+
+    
+</div>
+<!-- site / end -->
