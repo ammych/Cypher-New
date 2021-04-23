@@ -1,0 +1,14 @@
+<ng-container *ngIf="showGallery">
+    <div class="product-gallery__featured">
+        <owl-carousel-o [options]="carouselOptions" (changed)="featuredCarouselTranslated($event)" appOwlPreventClick #featuredCarousel>
+            <ng-template *ngFor="let item of items" carouselSlide [id]="item.id">
+                <div class="image image--type--product">
+                    <a class="image__body" (click)="onFeaturedImageClick($event, item);" [href]="item.image" target="_blank">
+                        <img class="image__tag" [src]="item.image" alt="" #imageElement>
+                    </a>
+                </div>
+				<div class="authenticatebar">100% authenticity guaranteed</div>
+            </ng-template>
+        </owl-carousel-o>
+    </div>
+</ng-container>
