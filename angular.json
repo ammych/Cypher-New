@@ -188,5 +188,8 @@
       }
     }
   },
-  "defaultProject": "storefront"
+  "defaultProject": "storefront",
+  "cli": {
+    "analytics": "ba5c0fe1-2419-476b-bfe2-3d1363ae36c7"
+  }
 }
