@@ -54,9 +54,9 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
         },
     ];
 
-    @ViewChild('billingAddressForm', {read: AddressFormComponent}) billingAddressForm: AddressFormComponent;
+    //@ViewChild('billingAddressForm', {read: AddressFormComponent}) billingAddressForm: AddressFormComponent;
 
-    @ViewChild('shippingAddressForm', {read: AddressFormComponent}) shippingAddressForm: AddressFormComponent;
+    //@ViewChild('shippingAddressForm', {read: AddressFormComponent}) shippingAddressForm: AddressFormComponent;
 
     @ViewChild('registerForm', {read: RegisterFormComponent}) registerForm: RegisterFormComponent;
 
@@ -75,13 +75,13 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
         public cart: CartService,
     ) {
         this.form = this.fb.group({
-            billingAddress: [{}],
+            //billingAddress: [{}],
 
             createAccount: [false],
             account: [{}],
 
-            shipToDifferentAddress: [false],
-            shippingAddress: [{}],
+            //shipToDifferentAddress: [false],
+            //shippingAddress: [{}],
 
             comments: [''],
 
@@ -91,15 +91,13 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
         });
 
         this.form.get('account').disable({emitEvent: false});
-        this.form.get('shippingAddress').disable({emitEvent: false});
+        //this.form.get('shippingAddress').disable({emitEvent: false});
 
         this.form.valueChanges.pipe(
             startWith(of(this.form.value)),
             pairwise(),
         ).subscribe(([oldValue, newValue]) => {
-            if (oldValue.shipToDifferentAddress !== newValue.shipToDifferentAddress) {
-                this.toggleFormControl('shippingAddress', newValue.shipToDifferentAddress);
-            }
+            
             if (oldValue.createAccount !== newValue.createAccount) {
                 this.toggleFormControl('account', newValue.createAccount);
             }
@@ -174,8 +172,8 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
 
     private markAllAsTouched(): void {
         this.form.markAllAsTouched();
-        this.billingAddressForm.markAsTouched();
-        this.shippingAddressForm.markAsTouched();
+        //this.billingAddressForm.markAsTouched();
+        //this.shippingAddressForm.markAsTouched();
         this.registerForm.markAsTouched();
     }
 
@@ -192,8 +190,8 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
     private checkout(): void {
         const value = this.form.value;
 
-        const billingAddress = value.billingAddress;
-        const shippingAddress = value.shipToDifferentAddress ? value.shippingAddress : value.billingAddress;
+        //const billingAddress = value.billingAddress;
+        //const shippingAddress = value.shipToDifferentAddress ? value.shippingAddress : value.billingAddress;
 
         const checkoutData: CheckoutData = {
             payment: value.paymentMethod,
@@ -202,8 +200,8 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
                 options: item.options,
                 quantity: item.quantity,
             })),
-            billingAddress,
-            shippingAddress,
+            //billingAddress,
+            //shippingAddress,
             comment: value.comment,
         };
 
@@ -248,8 +246,8 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
     private createPayPalOrderRequest(): ICreateOrderRequest {
         const value = this.form.value;
 
-        const billingAddress: AddressData = value.billingAddress;
-        const shippingAddress: AddressData = value.shipToDifferentAddress ? value.shippingAddress : value.billingAddress;
+        //const billingAddress: AddressData = value.billingAddress;
+        //const shippingAddress: AddressData = value.shipToDifferentAddress ? value.shippingAddress : value.billingAddress;
 
         const shipping = this.cart.totals.filter(x => x.type === 'shipping').reduce((acc, total) => acc + total.price, 0);
         const taxes = this.cart.totals.filter(x => x.type === 'tax').reduce((acc, total) => acc + total.price, 0);
@@ -286,7 +284,7 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
                             value: item.product.price.toFixed(2),
                         },
                     })),
-                    shipping: {
+                    /*shipping: {
                         address: {
                             country_code: shippingAddress.country,
                             admin_area_1: shippingAddress.state,
@@ -295,11 +293,11 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
                             address_line_2: shippingAddress.address2,
                             postal_code: shippingAddress.postcode,
                         },
-                    },
+                    },*/
                 },
             ],
             payer: {
-                address: {
+                /*address: {
                     country_code: billingAddress.country,
                     admin_area_1: billingAddress.state,
                     admin_area_2: billingAddress.city,
@@ -311,7 +309,7 @@ export class PageCheckoutComponent implements OnInit, OnDestroy {
                     given_name: billingAddress.firstName,
                     surname: billingAddress.lastName,
                 },
-                email_address: billingAddress.email,
+                email_address: billingAddress.email,*/
             },
         };
     }

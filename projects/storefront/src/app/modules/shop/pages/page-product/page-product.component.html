@@ -73,6 +73,14 @@
 												</button>
 											</div>
 										</ng-container>
+										<div class="product__actions-item mt-4">
+												<a routerLink="/account/dashboard"
+													class="btn btn-primary btn-lg btn-block"
+												>
+													Sell Now
+												</a>
+											</div>
+										
 										
 										<div class="lastsalesection">
 											<div class="lastsaletitle">Last Sale</div>
@@ -80,16 +88,66 @@
 											<div class="salepricedown"><i class="fa fa-chevron-down"></i>-$1(0%)</div>
 										</div>
 										
+										<div class="detailssection">
+										
+											<div class="filter" appCollapseItem="filter--opened" #collapseItem="appCollapseItem">
+												<button type="button" class="filter__title" (click)="collapseItem.toggle()">
+													Details<i class="fa fa-chevron-down"></i>
+												</button>
+												<div class="filter__body" appCollapseContent>
+													<div class="filter__container">
+														<div class="product__meta">
+															<table class="table table-borderless">
+																<tbody>
+																<tr>
+																	<th>Style:</th>
+																	<td>{{ product.sku }}</td>
+																</tr>
+																<tr>
+																	<th>Colorway:</th>
+																	<td>{{ product.colorway }}</td>
+																</tr>
+																<tr>
+																	<th>Retail Price:</th>
+																	<td>${{ product.retailprice }}</td>
+																</tr>
+																<tr>
+																	<th>Release date:</th>
+																	<td>{{ product.releasedate }}</td>
+																</tr>
+																<tr>
+																	<th>India Release:</th>
+																	<td>{{ product.indiarelease }}</td>
+																</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										
+										</div>
+										
 										
 										<button
 											appAddToWishlist
 											type="button"
-											class="product__actions-item product__actions-item--wishlist"
-											[class.product__actions-item--loading]="addToWishlist.inProgress"
+											class="product__actions-item product__actions-item--wishlist addwishlist"
+											[ngClass]="{'show': !addToWishlist.inProgress && removeFromWishlist.inProgress, 'hide': addToWishlist.inProgress && !removeFromWishlist.inProgress}"
 											(click)="addToWishlist.add(this.product)"
 											#addToWishlist="addToWishlist"
 										>
 											<span>{{ 'BUTTON_ADD_TO_WISHLIST'|translate }}</span>
+										</button>
+										<button
+											appRemoveFromWishlist
+											type="button"
+											class="product__actions-item product__actions-item--wishlist removewishlist"
+											[ngClass]="{'show': addToWishlist.inProgress && !removeFromWishlist.inProgress, 'hide': !addToWishlist.inProgress && removeFromWishlist.inProgress}"
+											(click)="removeFromWishlist.remove(this.product)"
+											#removeFromWishlist="removeFromWishlist"
+										>
+											<span>Remove from wishlist</span>
 										</button>
 										
 										<button
@@ -111,33 +169,7 @@
 						<div class="row">
 							<div class="col-md-6">
 								
-                                    <div class="product__meta">
-										<h5>Details</h5>
-                                        <table class="table table-borderless">
-                                            <tbody>
-                                            <tr>
-                                                <th>Style:</th>
-                                                <td>{{ product.sku }}</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Colorway:</th>
-                                                <td>{{ product.colorway }}</td>
-                                            </tr>
-											<tr>
-                                                <th>Retail Price:</th>
-                                                <td>${{ product.retailprice }}</td>
-                                            </tr>
-											<tr>
-                                                <th>Release date:</th>
-                                                <td>{{ product.releasedate }}</td>
-                                            </tr>
-											<tr>
-                                                <th>India Release:</th>
-                                                <td>{{ product.indiarelease }}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    
 							</div>
 							<div class="col-md-6">
 							</div>
