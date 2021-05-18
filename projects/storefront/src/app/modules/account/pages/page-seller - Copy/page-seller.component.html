@@ -1,0 +1,241 @@
+
+    <div class="profile-header">
+        <ul>
+			<li><a routerLink="/account/profile">Buyer Info</a></li>
+			<li class="profilesecondli"><a routerLink="/account/seller" class="active">Seller Info</a></li>
+		</ul>
+    </div>
+    <div class="profile-body">
+		<div class="row">
+			<div class="col-12 col-lg-5 col-xl-5">
+				<div class="alert alert-success">
+					Notice Box
+				</div>
+			</div>
+		</div>
+        <div class="row no-gutters">
+            <div class="col-12 col-lg-5 col-xl-5" [formGroup]="form">
+                <input
+                    type="hidden"
+                    id="profile-first-name"
+                    formControlName="firstName"
+                    class="form-control"
+					[class.is-invalid]="form.controls.firstName|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-last-name"
+                    formControlName="lastName"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.lastName|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-address"
+                    formControlName="address"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.address|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-state"
+                    formControlName="state"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.state|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-zipcode"
+                    formControlName="zipcode"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.zipcode|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-country"
+                    formControlName="country"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.country|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-email"
+                    formControlName="email"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.email|isInvalid"
+                >
+				<input
+                    type="hidden"
+                    id="profile-phone"
+                    formControlName="phone"
+                    class="form-control"
+                    [class.is-invalid]="form.controls.phone|isInvalid"
+                >
+				<div class="form-group">
+                    <label for="profile-selleraddress">{{ 'INPUT_PICKUPADDRESS_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-selleraddress"
+                        formControlName="selleraddress"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.selleraddress|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.selleraddress|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label for="profile-sellerstate">{{ 'INPUT_STATE_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-sellerstate"
+                        formControlName="sellerstate"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.sellerstate|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.sellerstate|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label for="profile-sellerzipcode">{{ 'INPUT_ZIPCODE_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-sellerzipcode"
+                        formControlName="sellerzipcode"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.sellerzipcode|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.sellerzipcode|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label for="profile-sellercountry">{{ 'INPUT_COUNTRY_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-sellercountry"
+                        formControlName="sellercountry"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.sellercountry|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.sellercountry|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label for="profile-selleremail">{{ 'INPUT_EMAIL_ADDRESS_LABEL'|translate }}</label>
+                    <input
+                        type="email"
+                        id="profile-selleremail"
+                        formControlName="selleremail"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.selleremail|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.selleremail|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                        <div *ngIf="form.controls.selleremail|hasError:'email'">
+                            {{ 'ERROR_FORM_INCORRECT_EMAIL'|translate }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="profile-sellerphone">{{ 'INPUT_PHONE_NUMBER_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-sellerphone"
+                        formControlName="sellerphone"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.sellerphone|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.sellerphone|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+
+				<div class="form-group">
+                    <label for="profile-bankaccountholdername">{{ 'INPUT_BANKACCOUNTHOLDERNAME_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-bankaccountholdername"
+                        formControlName="bankaccountholdername"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.bankaccountholdername|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.bankaccountholdername|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label for="profile-bankaccountnumber">{{ 'INPUT_BANKACCOUNTNUMBER_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-bankaccountnumber"
+                        formControlName="bankaccountnumber"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.bankaccountnumber|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.bankaccountnumber|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label for="profile-ifsccode">{{ 'INPUT_IFSCCODE_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-ifsccode"
+                        formControlName="ifsccode"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.ifsccode|isInvalid"
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.ifsccode|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label for="profile-aadharnumber">{{ 'INPUT_AADHARNUMBER_LABEL'|translate }}</label>
+                    <input
+                        type="text"
+                        id="profile-aadharnumber"
+                        formControlName="aadharnumber"
+                        class="form-control"
+                        [class.is-invalid]="form.controls.aadharnumber|isInvalid"
+						
+                    >
+                    <div class="invalid-feedback">
+                        <div *ngIf="form.controls.aadharnumber|hasError:'required'">
+                            {{ 'ERROR_FORM_REQUIRED'|translate }}
+                        </div>
+                    </div>
+                </div>
+				
+                <div class="form-group mb-0">
+                    <button
+                        class="btn btn-primary mt-3"
+                        [class.btn-loading]="saveInProgress"
+                        (click)="save()"
+                    >
+                        {{ 'BUTTON_EDIT'|translate }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>

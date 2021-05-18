@@ -1,0 +1,285 @@
+<div class="dashboard" *ngIf="account.user">
+
+	<div class="dashboardheader">
+		<div class="dashboard-heading">Dashboard</div>
+		<div class="profile-card__name">{{ account.user.firstName }} {{ account.user.lastName }}</div>
+	</div>
+	<ul class="dashboardlinks">
+		<li><a routerLink="/account/dashboard"><i class="fa fa-plus"></i>{{ 'TEXT_ADD_NEW'|translate }}</a></li>
+		<li><a routerLink="/account/active">{{ 'TEXT_ACTIVE'|translate }}</a></li>
+		<li><a routerLink="/account/pending">{{ 'TEXT_PENDING'|translate }}</a></li>
+		<li><a routerLink="/account/history">{{ 'TEXT_HISTORY'|translate }}</a></li>
+		<li><a routerLink="/account/mostwanted" class="active">{{ 'TEXT_MOSTWANTED'|translate }}</a></li>
+		<li><a routerLink="/account/settings">{{ 'TEXT_SETTINGS'|translate }}</a></li>
+	</ul>
+	
+	
+	<div class="dashboardcontent">
+		<div class="mostwantedsection">
+			<div class="mostwantedheading">
+				Want to buy request
+			</div>
+			
+			<div class="block-products-columns__list">
+				<div class="block-products-columns__list-item ng-star-inserted">
+					<div class="product-card">
+						<div class="product-card__image">
+							<div class="image image--type--product">
+								<div class="image__body"><img alt="" class="image__tag" src="assets/images/products/product-6-1.png"></div>
+							</div>
+						</div>
+						<div class="product-card__info">
+							<div class="orderdetails mostwantedorderdetails">
+								<p class="productname">Air Jordan 1 retro high Off- White Chicago</p>
+								<p>Size: UK 9</p>
+							</div>
+							<div class="orderdetailsbtn">
+								<div (click)="openModal(template,1)">Sell Now</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block-products-columns__list-item ng-star-inserted">
+					<div class="product-card">
+						<div class="product-card__image">
+							<div class="image image--type--product">
+								<div class="image__body"><img alt="" class="image__tag" src="assets/images/products/product-6-1.png"></div>
+							</div>
+						</div>
+						<div class="product-card__info">
+							<div class="orderdetails mostwantedorderdetails">
+								<p class="productname">Air Jordan 1 retro high Off- White Chicago</p>
+								<p>Size: UK 9</p>
+							</div>
+							<div class="orderdetailsbtn">
+								<div (click)="openModal(template,1)">Sell Now</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block-products-columns__list-item ng-star-inserted">
+					<div class="product-card">
+						<div class="product-card__image">
+							<div class="image image--type--product">
+								<div class="image__body"><img alt="" class="image__tag" src="assets/images/products/product-6-1.png"></div>
+							</div>
+						</div>
+						<div class="product-card__info">
+							<div class="orderdetails mostwantedorderdetails">
+								<p class="productname">Air Jordan 1 retro high Off- White Chicago</p>
+								<p>Size: UK 9</p>
+							</div>
+							<div class="orderdetailsbtn">
+								<div (click)="openModal(template,1)">Sell Now</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+	
+		</div>
+		<div class="mostwantedsection">
+			<div class="mostwantedheading">
+				New releases
+			</div>
+			
+			<div class="block-products-columns__list">
+				<div class="block-products-columns__list-item ng-star-inserted">
+					<div class="product-card">
+						<div class="product-card__image">
+							<div class="image image--type--product">
+								<div class="image__body"><img alt="" class="image__tag" src="assets/images/products/product-6-1.png"></div>
+							</div>
+						</div>
+						<div class="product-card__info">
+							<div class="orderdetails mostwantedorderdetails">
+								<p class="productname">Air Jordan 1 retro high Off- White Chicago</p>
+							</div>
+							<div class="orderdetailsbtn">
+								<a routerLink="/account/dashboard">Sell Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block-products-columns__list-item ng-star-inserted">
+					<div class="product-card">
+						<div class="product-card__image">
+							<div class="image image--type--product">
+								<div class="image__body"><img alt="" class="image__tag" src="assets/images/products/product-6-1.png"></div>
+							</div>
+						</div>
+						<div class="product-card__info">
+							<div class="orderdetails mostwantedorderdetails">
+								<p class="productname">Air Jordan 1 retro high Off- White Chicago</p>
+							</div>
+							<div class="orderdetailsbtn">
+								<a routerLink="/account/dashboard">Sell Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block-products-columns__list-item ng-star-inserted">
+					<div class="product-card">
+						<div class="product-card__image">
+							<div class="image image--type--product">
+								<div class="image__body"><img alt="" class="image__tag" src="assets/images/products/product-6-1.png"></div>
+							</div>
+						</div>
+						<div class="product-card__info">
+							<div class="orderdetails mostwantedorderdetails">
+								<p class="productname">Air Jordan 1 retro high Off- White Chicago</p>
+							</div>
+							<div class="orderdetailsbtn">
+								<a routerLink="/account/dashboard">Sell Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+	
+		</div>
+		<div class="mostwantedsection">
+			<div class="mostwantedheading">
+				Hottest
+			</div>
+			
+			<div class="block-products-columns__list">
+				<div class="block-products-columns__list-item ng-star-inserted">
+					<div class="product-card">
+						<div class="product-card__image">
+							<div class="image image--type--product">
+								<div class="image__body"><img alt="" class="image__tag" src="assets/images/products/product-6-1.png"></div>
+							</div>
+						</div>
+						<div class="product-card__info">
+							<div class="orderdetails mostwantedorderdetails">
+								<p class="productname">Air Jordan 1 retro high Off- White Chicago</p>
+							</div>
+							<div class="orderdetailsbtn">
+								<a routerLink="/account/dashboard">Sell Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block-products-columns__list-item ng-star-inserted">
+					<div class="product-card">
+						<div class="product-card__image">
+							<div class="image image--type--product">
+								<div class="image__body"><img alt="" class="image__tag" src="assets/images/products/product-6-1.png"></div>
+							</div>
+						</div>
+						<div class="product-card__info">
+							<div class="orderdetails mostwantedorderdetails">
+								<p class="productname">Air Jordan 1 retro high Off- White Chicago</p>
+							</div>
+							<div class="orderdetailsbtn">
+								<a routerLink="/account/dashboard">Sell Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="block-products-columns__list-item ng-star-inserted">
+					<div class="product-card">
+						<div class="product-card__image">
+							<div class="image image--type--product">
+								<div class="image__body"><img alt="" class="image__tag" src="assets/images/products/product-6-1.png"></div>
+							</div>
+						</div>
+						<div class="product-card__info">
+							<div class="orderdetails mostwantedorderdetails">
+								<p class="productname">Air Jordan 1 retro high Off- White Chicago</p>
+							</div>
+							<div class="orderdetailsbtn">
+								<a routerLink="/account/dashboard">Sell Now</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+	
+		</div>
+	
+	
+
+
+    
+	</div>
+	
+<ng-template #template>
+	<div class="modal-header">
+		<button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+			<span aria-hidden="true">×</span>
+		</button>
+	</div>
+	<div class="modal-body text-center">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="image__body"><img alt="" class="image__tag" src="assets/images/products/product-6-1.png"></div>
+			</div>
+			<div class="col-md-9">
+				<div class="detailsprotitle">Air Jordan 1 retro high Off- White Chicago</div>
+				<div class="offerssection">Offers<i class="fa fa-chevron-down"></i></div>
+				<div class="sellersection">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="sellertitle">Seller 1</div>
+							<p>Timeline: Within 2 weeks</p>
+							<p>Ask Price: Rs. 20,000</p>
+						</div>
+						<div class="col-md-4">
+							<div class="sellertitle">Seller 2</div>
+							<p>Timeline: Within 2 weeks</p>
+							<p>Ask Price: Rs. 20,000</p>
+						</div>
+						<div class="col-md-4">
+							<div class="sellertitle">Seller 3</div>
+							<p>Timeline: Within 2 weeks</p>
+							<p>Ask Price: Rs. 20,000</p>
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="youroffersection">
+					<div class="offertitle">Your offer</div>
+					<div class="row">
+						<div class="form-group col-md-8">
+							<label>Timeline</label>
+							<select class="form-control" name="timeline">
+								<option value="Within 2 weeks">Within 2 weeks</option>
+								<option value="Within 3 weeks">Within 3 weeks</option>
+								<option value="Within 4 weeks">Within 4 weeks</option>
+							</select>
+						</div>
+						<div class="form-group col-md-8">
+							<label>Ask Price (INR):</label>
+							<input type="text" class="form-control" name="askprice" value="20000">
+							<div class="pricesbox">
+								<table>
+									<tr>
+										<td>Transaction Fee (10%)</td>
+										<td>INR XX</td>
+									</tr>
+									<tr>
+										<td>Processing Fee (1.8%)</td>
+										<td>INR XX</td>
+									</tr>
+									<tr>
+										<td>You will recieve</td>
+										<td>INR XX</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<div class="form-group col-md-8 mb-0 pt-3"><button class="btn btn-primary">Submit</button></div>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+</ng-template>

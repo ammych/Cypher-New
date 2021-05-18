@@ -6,6 +6,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { AddressFormComponent } from '../../../shared/components/address-form/address-form.component';
 import { AccountApi, EditAddressData } from '../../../../api/base';
 import { Address } from '../../../../interfaces/address';
+import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-page-edit-address',
@@ -27,6 +29,9 @@ export class PageEditAddressComponent implements OnInit, OnDestroy {
         private router: Router,
         private route: ActivatedRoute,
         private fb: FormBuilder,
+		private toastr: ToastrService,
+        private translate: TranslateService,
+		
     ) { }
 
     ngOnInit(): void {
@@ -103,6 +108,8 @@ export class PageEditAddressComponent implements OnInit, OnDestroy {
         saveMethod.pipe(
             finalize(() => this.saveInProgress = false),
             takeUntil(this.destroy$),
-        ).subscribe(() => this.router.navigateByUrl('/account/addresses'));
+        ).subscribe(() => {
+            this.toastr.success(this.translate.instant('TEXT_TOAST_PROFILE_SAVED'));
+        });
     }
 }

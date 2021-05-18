@@ -17,11 +17,12 @@ import { SharedModule } from '../shared/shared.module';
 import { LayoutComponent } from './components/layout/layout.component';
 
 // pages
-import { PageAddressesComponent } from './pages/page-addresses/page-addresses.component';
+//import { PageAddressesComponent } from './pages/page-addresses/page-addresses.component';
 import { PageDashboardComponent } from './pages/page-dashboard/page-dashboard.component';
 import { PageActiveComponent } from './pages/page-active/page-active.component';
 import { PagePendingComponent } from './pages/page-pending/page-pending.component';
 import { PageHistoryComponent } from './pages/page-history/page-history.component';
+import { PageMostwantedComponent } from './pages/page-mostwanted/page-mostwanted.component';
 import { PageSettingsComponent } from './pages/page-settings/page-settings.component';
 import { PageEditAddressComponent } from './pages/page-edit-address/page-edit-address.component';
 import { PageSellerComponent } from './pages/page-seller/page-seller.component';
@@ -39,11 +40,12 @@ import { PageProfileComponent } from './pages/page-profile/page-profile.componen
         // components
         LayoutComponent,
         // pages
-        PageAddressesComponent,
+        //PageAddressesComponent,
         PageDashboardComponent,
 		PageActiveComponent,
 		PagePendingComponent,
 		PageHistoryComponent,
+		PageMostwantedComponent,
 		PageSettingsComponent,
         PageEditAddressComponent,
         PageSellerComponent,

@@ -35,16 +35,6 @@ export class PageProfileComponent implements OnInit, OnDestroy {
 			country: [this.account.user.country, [Validators.required]],
             email: [this.account.user.email, [Validators.required, Validators.email]],
             phone: [this.account.user.phone, [Validators.required]],
-			selleraddress: [this.account.user.selleraddress],
-			sellerstate: [this.account.user.sellerstate],
-			sellerzipcode: [this.account.user.sellerzipcode],
-			sellercountry: [this.account.user.sellercountry],
-			selleremail: [this.account.user.selleremail],
-            sellerphone: [this.account.user.sellerphone],
-			bankaccountholdername: [this.account.user.bankaccountholdername],
-			bankaccountnumber: [this.account.user.bankaccountnumber],
-			ifsccode: [this.account.user.ifsccode],
-			aadharnumber: [this.account.user.aadharnumber],
         });
     }
 
