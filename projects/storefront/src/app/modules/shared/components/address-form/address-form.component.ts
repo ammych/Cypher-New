@@ -9,25 +9,22 @@ import {
     Validator,
     Validators,
 } from '@angular/forms';
-import { Country } from '../../../../interfaces/country';
-import { CountriesApi } from '../../../../api/base';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 let uniqueId = 0;
 
 export interface AddressFormValue {
-    firstName: string;
-    lastName: string;
-    company: string;
-    country: string;
-    address1: string;
-    address2: string;
-    city: string;
-    state: string;
-    postcode: string;
-    email: string;
-    phone: string;
+    selleraddress: string;
+	sellerstate: string;
+	sellerzipcode: string;
+	sellercountry: string;
+	selleremail: string;
+    sellerphone: string;
+	bankaccountholdername: string;
+	bankaccountnumber: string;
+	ifsccode: string;
+	aadharnumber: string;
 }
 
 @Component({
@@ -52,8 +49,7 @@ export class AddressFormComponent implements OnInit, OnDestroy, ControlValueAcce
 
     form: FormGroup;
 
-    countries: Country[] = [];
-
+    
     get formId(): string {
         return `app-address-form-id-${this.dataId}`;
     }
@@ -64,22 +60,21 @@ export class AddressFormComponent implements OnInit, OnDestroy, ControlValueAcce
 
     constructor(
         private fb: FormBuilder,
-        private countriesService: CountriesApi,
     ) { }
 
     ngOnInit(): void {
         this.form = this.fb.group({
-            firstName: ['', Validators.required],
-            lastName:  ['', Validators.required],
-            company:   [''],
-            country:   ['', Validators.required],
-            address1:  ['', Validators.required],
-            address2:  [''],
-            city:      ['', Validators.required],
-            state:     ['', Validators.required],
-            postcode:  ['', Validators.required],
-            email:     ['', [Validators.required, Validators.email]],
-            phone:     ['', Validators.required],
+            selleraddress: ['', Validators.required],
+            sellerstate:  ['', Validators.required],
+            sellerzipcode:   ['', Validators.required],
+            sellercountry:  ['', Validators.required],
+			selleremail:     ['', [Validators.required, Validators.email]],
+            sellerphone:     ['', Validators.required],
+            bankaccountholdername:      ['', Validators.required],
+            bankaccountnumber:     ['', Validators.required],
+            ifsccode:  ['', Validators.required],
+			aadharnumber:  ['', Validators.required],
+            
         });
 
         this.form.valueChanges.subscribe(value => {
@@ -87,7 +82,7 @@ export class AddressFormComponent implements OnInit, OnDestroy, ControlValueAcce
             this.touchedFn();
         });
 
-        this.countriesService.getCountries().pipe(takeUntil(this.destroy$)).subscribe(x => this.countries = x);
+       
     }
 
     ngOnDestroy(): void {
@@ -118,17 +113,16 @@ export class AddressFormComponent implements OnInit, OnDestroy, ControlValueAcce
 
         this.form.setValue(
             {
-                firstName: '',
-                lastName: '',
-                company: '',
-                country: '',
-                address1: '',
-                address2: '',
-                city: '',
-                state: '',
-                postcode: '',
-                email: '',
-                phone: '',
+                selleraddress: '',
+				sellerstate: '',
+				sellerzipcode: '',
+				sellercountry: '',
+				selleremail: '',
+				sellerphone: '',
+				bankaccountholdername: '',
+				bankaccountnumber: '',
+				ifsccode: '',
+				aadharnumber: '',
                 ...value,
             },
             {emitEvent: false},
