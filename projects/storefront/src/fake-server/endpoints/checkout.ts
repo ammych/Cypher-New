@@ -49,8 +49,8 @@ export function checkout(data: CheckoutData): Observable<Order> {
         subtotal,
         totals,
         total,
-        billingAddress: data.billingAddress,
-        shippingAddress: data.shippingAddress,
+        //billingAddress: data.billingAddress,
+        //shippingAddress: data.shippingAddress,
     };
 
     orders.unshift(order);

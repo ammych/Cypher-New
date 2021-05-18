@@ -3,7 +3,6 @@ import { User } from '../../app/interfaces/user';
 import { HttpErrorResponse } from '@angular/common/http';
 import { mergeMap } from 'rxjs/operators';
 import { EditProfileData } from '../../app/api/base';
-import { EditProfileData1 } from '../../app/api/base';
 
 function error(message: string): HttpErrorResponse {
     return new HttpErrorResponse({
@@ -29,17 +28,7 @@ export function accountSignIn(email: string, password: string): Observable<User>
 			zipcode: '110016',
 			country: 'India',
             avatar: '//www.gravatar.com/avatar/bde30b7dd579b3c9773f80132523b4c3?d=mp&s=88',
-			selleraddress: '',
-			sellerstate: '',
-			sellerzipcode: '',
-			sellercountry: '',
-			selleremail: '',
-			sellerphone: '',
-			bankaccountholdername: '',
-			bankaccountnumber: '',
-			ifsccode: '',
-			aadharnumber: '',
-        };
+		};
 
         return delayResponse(of(user));
     }
@@ -70,17 +59,7 @@ export function accountSignUp(firstName: string, lastName: string, email: string
 		zipcode: '110016',
 		country: 'India',
         avatar: '//www.gravatar.com/avatar/bde30b7dd579b3c9773f80132523b4c3?d=mp&s=88',
-		selleraddress: '',
-		sellerstate: '',
-		sellerzipcode: '',
-		sellercountry: '',
-		selleremail: '',
-		sellerphone: '',
-		bankaccountholdername: '',
-		bankaccountnumber: '',
-		ifsccode: '',
-		aadharnumber: '',
-    };
+	};
 
     return delayResponse(of(user));
 }
@@ -100,46 +79,11 @@ export function accountEditProfile(data: EditProfileData): Observable<User> {
 		zipcode: data.zipcode,
 		country: data.country,
         avatar: '//www.gravatar.com/avatar/bde30b7dd579b3c9773f80132523b4c3?d=mp&s=88',
-		selleraddress: data.selleraddress,
-		sellerstate: data.sellerstate,
-		sellerzipcode: data.sellerzipcode,
-		sellercountry: data.sellercountry,
-		selleremail: data.selleremail,
-		sellerphone: data.sellerphone,
-		bankaccountholdername: data.bankaccountholdername,
-		bankaccountnumber: data.bankaccountnumber,
-		ifsccode: data.ifsccode,
-		aadharnumber: data.aadharnumber,
     };
 
     return delayResponse(of(user));
 }
 
-export function accountEditProfile1(data: EditProfileData1): Observable<User> {
-    const user: User = {
-		email: data.email,
-        phone: data.phone,
-        firstName: data.firstName,
-        lastName: data.lastName,
-		address: data.address,
-		state: data.state,
-		zipcode: data.zipcode,
-		country: data.country,
-        avatar: '//www.gravatar.com/avatar/bde30b7dd579b3c9773f80132523b4c3?d=mp&s=88',
-        selleraddress: data.selleraddress,
-		sellerstate: data.sellerstate,
-		sellerzipcode: data.sellerzipcode,
-		sellercountry: data.sellercountry,
-		selleremail: data.selleremail,
-		sellerphone: data.sellerphone,
-		bankaccountholdername: data.bankaccountholdername,
-		bankaccountnumber: data.bankaccountnumber,
-		ifsccode: data.ifsccode,
-		aadharnumber: data.aadharnumber,
-    };
-
-    return delayResponse(of(user));
-}
 
 export function accountChangePassword(oldPassword: string, newPassword: string): Observable<void> {
     if (newPassword.length < 6) {

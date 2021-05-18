@@ -19,18 +19,17 @@ export function getAddresses(): Observable<Address[]> {
 export function addAddress(data: EditAddressData): Observable<Address> {
     const address: Address = {
         id: getId(),
-        firstName: '',
-        lastName: '',
-        company: '',
-        country: '',
-        address1: '',
-        address2: '',
-        city: '',
-        state: '',
-        postcode: '',
-        email: '',
-        phone: '',
-        default: false,
+        selleraddress: '',
+        sellerstate: '',
+        sellerzipcode: '',
+        sellercountry: '',
+        selleremail: '',
+        sellerphone: '',
+        bankaccountholdername: '',
+        bankaccountnumber: '',
+        ifsccode: '',
+        aadharnumber: '',
+        default: true,
         ...data,
     };
 
@@ -50,17 +49,16 @@ export function addAddress(data: EditAddressData): Observable<Address> {
 export function editAddress(addressId: number, data: EditAddressData): Observable<Address> {
     const address = addresses.find(x => x.id === addressId);
 
-    address.firstName = data.firstName;
-    address.lastName = data.lastName;
-    address.company = data.company;
-    address.country = data.country;
-    address.address1 = data.address1;
-    address.address2 = data.address2;
-    address.city = data.city;
-    address.state = data.state;
-    address.postcode = data.postcode;
-    address.email = data.email;
-    address.phone = data.phone;
+    address.selleraddress = data.selleraddress;
+    address.sellerstate = data.sellerstate;
+    address.sellerzipcode = data.sellerzipcode;
+    address.sellercountry = data.sellercountry;
+    address.selleremail = data.selleremail;
+    address.sellerphone = data.sellerphone;
+    address.bankaccountholdername = data.bankaccountholdername;
+    address.bankaccountnumber = data.bankaccountnumber;
+    address.ifsccode = data.ifsccode;
+    address.aadharnumber = data.aadharnumber;
     address.default = data.default;
 
     if (address.default) {

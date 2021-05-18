@@ -56,8 +56,8 @@ function makeOrders(defs: OrderDef[]): Order[] {
             subtotal,
             totals,
             total,
-            shippingAddress: JSON.parse(JSON.stringify(addresses[0])),
-            billingAddress: JSON.parse(JSON.stringify(addresses[0])),
+            //shippingAddress: JSON.parse(JSON.stringify(addresses[0])),
+            //billingAddress: JSON.parse(JSON.stringify(addresses[0])),
         };
     });
 }
@@ -66,29 +66,15 @@ const ordersDef: OrderDef[] = [
     {
         number: '9478',
         createdAt: '2020-10-19',
-        payment: 'PayPal',
+        payment: 'Online Payment',
         status: 'PENDING',
         items: [
-            {
-                product: 'brandix-spark-plug-kit-asr-400',
-                options: [
-                    {name: 'Color', value: 'True Red'},
-                    {name: 'Material', value: 'Aluminium'},
-                ],
-                quantity: 2,
-            },
+            
             {
                 product: 'brandix-brake-kit-bdx-750z370-s',
                 options: [],
                 quantity: 1,
-            },
-            {
-                product: 'left-headlight-of-brandix-z54',
-                options: [
-                    {name: 'Color', value: 'Green'},
-                ],
-                quantity: 3,
-            },
+            }
         ],
     },
     {
