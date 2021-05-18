@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 // pages
 import { PageAboutUsComponent } from './pages/page-about-us/page-about-us.component';
 import { PagePrivacyComponent } from './pages/page-privacy/page-privacy.component';
+import { PageCareersComponent } from './pages/page-careers/page-careers.component';
+import { PageReviewsComponent } from './pages/page-reviews/page-reviews.component';
 import { PageContactUsOneComponent } from './pages/page-contact-us-one/page-contact-us-one.component';
 import { PageHowItWorksComponent } from './pages/page-how-it-works/page-how-it-works.component';
 import { PageFaqComponent } from './pages/page-faq/page-faq.component';
 import { PageTermsComponent } from './pages/page-terms/page-terms.component';
-import { PageTypographyComponent } from './pages/page-typography/page-typography.component';
+import { PageFeedComponent } from './pages/page-feed/page-feed.component';
 
 
 const routes: Routes = [
@@ -21,7 +23,7 @@ const routes: Routes = [
         component: PageAboutUsComponent,
     },
     {
-        path: 'contact-us-v1',
+        path: 'contact-us',
         component: PageContactUsOneComponent,
     },
     {
@@ -40,9 +42,17 @@ const routes: Routes = [
         path: 'privacy',
         component: PagePrivacyComponent,
     },
+	{
+        path: 'careers',
+        component: PageCareersComponent,
+    },
+	{
+        path: 'reviews',
+        component: PageReviewsComponent,
+    },
     {
-        path: 'typography',
-        component: PageTypographyComponent,
+        path: 'feed',
+        component: PageFeedComponent,
     },
 ];
 

@@ -12,11 +12,13 @@ import { SiteRoutingModule } from './site-routing.module';
 // pages
 import { PageAboutUsComponent } from './pages/page-about-us/page-about-us.component';
 import { PagePrivacyComponent } from './pages/page-privacy/page-privacy.component';
+import { PageCareersComponent } from './pages/page-careers/page-careers.component';
+import { PageReviewsComponent } from './pages/page-reviews/page-reviews.component';
 import { PageContactUsOneComponent } from './pages/page-contact-us-one/page-contact-us-one.component';
 import { PageHowItWorksComponent } from './pages/page-how-it-works/page-how-it-works.component';
 import { PageFaqComponent } from './pages/page-faq/page-faq.component';
 import { PageTermsComponent } from './pages/page-terms/page-terms.component';
-import { PageTypographyComponent } from './pages/page-typography/page-typography.component';
+import { PageFeedComponent } from './pages/page-feed/page-feed.component';
 
 // blocks
 import { BlockMapComponent } from './blocks/block-map/block-map.component';
@@ -29,11 +31,13 @@ import { BlockTeammatesComponent } from './blocks/block-teammates/block-teammate
         // pages
         PageAboutUsComponent,
         PagePrivacyComponent,
+		PageCareersComponent,
+		PageReviewsComponent,
         PageContactUsOneComponent,
         PageHowItWorksComponent,
         PageFaqComponent,
         PageTermsComponent,
-        PageTypographyComponent,
+        PageFeedComponent,
         // blocks
         BlockMapComponent,
         BlockReviewsComponent,
