@@ -16,7 +16,7 @@ import { CurrencyModule } from '../currency/currency.module';
 import { RadioModule } from '../radio/radio.module';
 
 // components
-import { AddressCardComponent } from './components/address-card/address-card.component';
+//import { AddressCardComponent } from './components/address-card/address-card.component';
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import { ArrowComponent } from './components/arrow/arrow.component';
 import { BlockHeaderComponent } from './components/block-header/block-header.component';
@@ -67,7 +67,7 @@ import { IsInvalidPipe } from './pipes/is-invalid.pipe';
 @NgModule({
     declarations: [
         // components
-        AddressCardComponent,
+        //AddressCardComponent,
         AddressFormComponent,
         ArrowComponent,
         BlockHeaderComponent,
@@ -117,7 +117,7 @@ import { IsInvalidPipe } from './pipes/is-invalid.pipe';
         CheckboxModule,
         CurrencyModule,
         // components
-        AddressCardComponent,
+        //AddressCardComponent,
         AddressFormComponent,
         ArrowComponent,
         BlockHeaderComponent,

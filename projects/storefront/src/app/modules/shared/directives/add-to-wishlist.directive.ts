@@ -12,7 +12,7 @@ export class AddToWishlistDirective implements OnDestroy {
     private destroy$: Subject<void> = new Subject<void>();
 
     inProgress = false;
-
+	
     constructor(
         private wishlist: WishlistService,
         private cd: ChangeDetectorRef,
@@ -23,17 +23,21 @@ export class AddToWishlistDirective implements OnDestroy {
         this.destroy$.complete();
     }
 
-    add(product: Product): void {
-        if (this.inProgress) {
+    add(product: Product): void
+	{
+        if (this.inProgress)
+		{
             return;
         }
 
         this.inProgress = true;
         this.wishlist.add(product).pipe(takeUntil(this.destroy$)).subscribe({
             complete: () => {
-                this.inProgress = false;
+                //this.inProgress = false;
                 this.cd.markForCheck();
+				
             },
         });
     }
+	
 }

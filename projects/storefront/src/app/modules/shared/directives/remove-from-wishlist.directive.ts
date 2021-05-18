@@ -31,7 +31,7 @@ export class RemoveFromWishlistDirective implements OnDestroy {
         this.inProgress = true;
         this.wishlist.remove(product).pipe(takeUntil(this.destroy$)).subscribe({
             complete: () => {
-                this.inProgress = false;
+                //this.inProgress = false;
                 this.cd.markForCheck();
             },
         });
