@@ -8,14 +8,4 @@ export interface User {
 	zipcode: string;
 	country: string;
     avatar: string;
-	selleraddress: string;
-	sellerstate: string;
-	sellerzipcode: string;
-	sellercountry: string;
-	selleremail: string;
-    sellerphone: string;
-	bankaccountholdername: string;
-	bankaccountnumber: string;
-	ifsccode: string;
-	aadharnumber: string;
 }

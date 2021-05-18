@@ -1,18 +1,19 @@
-export interface AddressData {
-    firstName: string;
-    lastName: string;
-    company: string;
-    country: string;
-    address1: string;
-    address2: string;
-    city: string;
-    state: string;
-    postcode: string;
-    email: string;
-    phone: string;
+export interface AddressData
+{
+    selleraddress: string;
+	sellerstate: string;
+	sellerzipcode: string;
+	sellercountry: string;
+	selleremail: string;
+    sellerphone: string;
+	bankaccountholdername: string;
+	bankaccountnumber: string;
+	ifsccode: string;
+	aadharnumber: string;
 }
 
-export interface Address extends AddressData {
+export interface Address extends AddressData
+{
     id: number;
     default: boolean;
 }

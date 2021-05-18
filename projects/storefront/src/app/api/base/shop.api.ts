@@ -66,8 +66,8 @@ export interface CheckoutItemData {
 export interface CheckoutData {
     payment: string;
     items: CheckoutItemData[];
-    billingAddress: AddressData;
-    shippingAddress: AddressData;
+    //billingAddress: AddressData;
+    //shippingAddress: AddressData;
     comment: string;
 }
 

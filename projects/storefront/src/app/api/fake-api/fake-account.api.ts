@@ -1,6 +1,6 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { AccountApi, EditAddressData, EditProfileData, EditProfileData1, GetOrdersListOptions } from '../base';
+import { AccountApi, EditAddressData, EditProfileData, GetOrdersListOptions } from '../base';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../../interfaces/user';
 import { tap } from 'rxjs/operators';
@@ -10,8 +10,7 @@ import { Order } from '../../interfaces/order';
 import {
     accountChangePassword,
     accountEditProfile,
-	accountEditProfile1,
-    accountSignIn,
+	accountSignIn,
     accountSignOut,
     accountSignUp,
     addAddress,
@@ -74,12 +73,7 @@ export class FakeAccountApi extends AccountApi {
         );
     }
 
-	editProfile1(data: EditProfileData1): Observable<User> {
-        return accountEditProfile1(data).pipe(
-            tap(user => this.setUser(user)),
-        );
-    }
-
+	
     changePassword(oldPassword: string, newPassword: string): Observable<void> {
         return accountChangePassword(oldPassword, newPassword);
     }

@@ -32,6 +32,6 @@ export interface Order {
     subtotal: number;
     totals: OrderTotal[];
     total: number;
-    shippingAddress: AddressData;
-    billingAddress: AddressData;
+    //shippingAddress: AddressData;
+    //billingAddress: AddressData;
 }
